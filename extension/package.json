@@ -1,0 +1,37 @@
+{
+	"name": "claude-plan-review",
+	"displayName": "Claude Plan Review",
+	"description": "Terminal-based plan-review UI for Claude Code using per-window Unix-socket IPC.",
+	"publisher": "karim",
+	"version": "0.0.1",
+	"private": true,
+	"engines": {
+		"vscode": "^1.75.0"
+	},
+	"activationEvents": [
+		"onStartupFinished"
+	],
+	"main": "./out/extension.js",
+	"scripts": {
+		"compile": "npm run compile:extension && npm run typecheck:webview && npm run compile:webview",
+		"compile:extension": "tsc -p .",
+		"compile:webview": "vite build",
+		"typecheck:webview": "tsc -p src/webview",
+		"watch:extension": "tsc -watch -p .",
+		"watch:webview": "vite build --watch"
+	},
+	"dependencies": {
+		"marked": "12.0.0"
+	},
+	"devDependencies": {
+		"@types/node": "20.19.39",
+		"@types/react": "19.2.14",
+		"@types/react-dom": "19.2.3",
+		"@types/vscode": "1.75.0",
+		"@vitejs/plugin-react": "6.0.1",
+		"react": "19.2.5",
+		"react-dom": "19.2.5",
+		"typescript": "5.8.3",
+		"vite": "8.0.9"
+	}
+}
