@@ -3,7 +3,7 @@
 Claude Code PreToolUse hook for ExitPlanMode. Terminal-based plan review.
 
 Wire-up: registered in ~/.claude/settings.json as a PreToolUse hook
-matched on "ExitPlanMode". Spec: /home/karim-mo/my-work/claude-code-extras/spec.md §4.
+matched on "ExitPlanMode".
 
 Flow:
   1. Read the PreToolUse payload from stdin (we need transcript_path).
@@ -48,7 +48,7 @@ def find_plan_file(transcript_path):
     except OSError:
         return None
     matches = PLAN_PATH_REGEX.findall(content)
-    # Most recent occurrence first (spec §4.3)
+    # Most recent occurrence first
     for candidate in reversed(matches):
         if os.path.exists(candidate):
             return candidate
